@@ -1,6 +1,6 @@
 const canvas = document.querySelector("#c");
 
-const gl =canvas.getContext("webgl2");
+const gl = canvas.getContext("webgl2");
 if (!gl) {
     alert("No WebGL2 context. You cannot play on this browser (or machine).");
 }
@@ -81,3 +81,11 @@ gl.vertexAttribPointer(
 gl.viewport(0,0, gl.canvas.width, gl.canvas.height);
 gl.clearColor(0, 0, 0, 0);
 gl.clear(gl.COLOR_BUFFER_BIT);
+
+gl.useProgram(program);
+
+gl.bindVertexArray(vao);
+
+const primitiveType = gl.TRIANGLES;
+const count = 3;
+gl.drawArrays(primitiveType, offset, count);
